@@ -17,11 +17,11 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: zip folders
-        run: find * -mindepth 1 -maxdepth 1 -type d -exec sh -c 'cd "$0" ; zip -r "../../`echo "$0" | tr / _`.zip" *' {} \;
+        run: find * -mindepth 1 -maxdepth 1 -type d -exec sh -c 'cd "$0" ; zip -r "../../`echo "$0" | tr / .`.zip" *' {} \;
 
       - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S')"
 
       - name: release
         uses: softprops/action-gh-release@v2
