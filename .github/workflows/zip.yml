@@ -1,4 +1,4 @@
-name: 'zip'
+name: "zip"
 
 concurrency:
   cancel-in-progress: true
@@ -7,7 +7,7 @@ concurrency:
 on:
   push:
     branches:
-      - 'master'
+      - "master"
 
 jobs:
   zip-and-release-folders:
@@ -19,4 +19,4 @@ jobs:
       - name: release
         uses: softprops/action-gh-release@v2
         with:
-          files: *.zip
+          files: "*.zip"
