@@ -20,11 +20,11 @@ jobs:
         run: find * -mindepth 1 -maxdepth 1 -type d -exec sh -c 'cd "$0" ; zip -r "../../`echo "$0" | tr / _`.zip" *' {} \;
 
       - name: Get tag
-        id: tag
-        run: echo "::set-output name=tag::$(date + 'v%Y.%m.%d.%H.%M.%S')"
+        id: date
+        run: echo "::set-output name=date::$(date + '%Y.%m.%d.%H.%M.%S')"
 
       - name: release
         uses: softprops/action-gh-release@v2
         with:
           files: "*.zip"
-          tag_name: ${{ steps.tag.outputs.tag }}
+          tag_name: v${{ steps.date.outputs.date }}
