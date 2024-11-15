@@ -1,9 +1,5 @@
 name: "zip"
 
-concurrency:
-  cancel-in-progress: true
-  group: build-${{ github.ref }}
-
 on:
   push:
     branches:
