@@ -19,9 +19,9 @@ jobs:
       - name: zip folders
         run: find * -mindepth 1 -maxdepth 1 -type d -exec sh -c 'cd "$0" ; zip -r "../../`echo "$0" | tr / _`.zip" *' {} \;
 
-      - name: Get tag
+      - name: Get current date
         id: date
-        run: echo "::set-output name=date::$(date + '%Y.%m.%d.%H.%M.%S')"
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
 
       - name: release
         uses: softprops/action-gh-release@v2
